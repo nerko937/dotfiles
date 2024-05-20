@@ -15,5 +15,5 @@ set catpuccin theme in lxappearance, which is downloaded in i3 config already
 
 set papirus icon theme in lxappearance
 
-load gnome-terminal profile with `dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf` (should be replaces with catpuccin hnome-terminal theme)
+load gnome-terminal profile with `dconf load /org/gnome/terminal/legacy/profiles:/ < gnome-terminal-profiles.dconf` (should be replaced with catpuccin gnome-terminal theme)
 
