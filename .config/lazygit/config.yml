@@ -1,0 +1,10 @@
+gui:
+  sidePanelWidth: 0.25
+  language: en
+  portraitMode: always
+  showCommandLog: false
+git:
+  paging:
+    colorArg: always
+    pager: delta --dark --paging=never -s
+
