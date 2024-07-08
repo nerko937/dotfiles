@@ -8,6 +8,7 @@ things to install:
 * lxappearance
 * papirus-icon-theme
 * thunar
+* neovim
 
 set oh-my-zsh theme to `agnoster`
 
