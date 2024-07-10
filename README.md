@@ -20,6 +20,7 @@ load gnome-terminal profile with `dconf load /org/gnome/terminal/legacy/profiles
 
 ## Arch needed commands so far
 ```
+sudo pacman -S xorg
 yay -S ttf-jetbrains-mono-nerd
 setxkbmap -layout pl
 sudo pacman -S networkmanager
