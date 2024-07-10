@@ -20,6 +20,10 @@ font pango:JetBrainsMono Nerd Font Medium 10
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
 
+exec_always feh --bg-scale $HOME/wallpaper.jpg
+exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-1 --off --output DP-1 --mode 1920x1200 --pos 0x0 --rotate normal --output HDMI-2 --off
+exec_always --no-startup-id picom
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
@@ -108,17 +112,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:󰇧 Browser"
-set $ws2 "2: Terminal"
-set $ws3 "Workspace 3"
-set $ws4 "Workspace 4"
-set $ws5 "Workspace 5"
-set $ws6 "Workspace 6"
-set $ws7 "Workspace 7"
-set $ws8 "Workspace 8"
-set $ws9 "Workspace 9"
-set $ws10 "10:󰒱 Slack"
-
+set $ws1 "1:Browser"
+set $ws2 "2:Terminal"
+set $ws3 "3:Workspace 3"
+set $ws4 "4:Workspace 4"
+set $ws5 "5:Workspace 5"
+set $ws6 "6:Workspace 6"
+set $ws7 "7:Workspace 7"
+set $ws8 "8:Workspace 8"
+set $ws9 "9:Workspace 9"
+set $ws10 "10:Chat"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -212,34 +215,6 @@ client.unfocused         $surface0 $base $text  $rosewater $surface0
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
-
-# bar
-bar {
-    position top
-    status_command i3blocks
-    strip_workspace_numbers yes
-#       colorclass         border bg   text
-    colors {
-        background         $crust
-        statusline         $text
-        focused_statusline $text
-        focused_separator  $base
-        focused_workspace  $surface1 $base $green
-        active_workspace   $surface1 $base $blue
-        inactive_workspace $surface0 $base $surface1
-        urgent_workspace   $base $base $surface1
-        binding_mode       $base $base $surface1
-    }
-}
-
-set $ctp-version v0.7.4
-# set $ctp-theme-name Catppuccin-Mocha-Standard-Blue-Dark
-exec_always if [ ! -e ~/.themes/Catppuccin-Mocha-Standard-Blue-Dark ]; then \
-  mkdir -p ~/.themes \
-  && curl -L https://github.com/catppuccin/gtk/releases/download/$ctp-version/Catppuccin-Mocha-Standard-Blue-Dark.zip  -o ~/.themes/catppuccin.zip \
-  && unzip ~/.themes/catppuccin.zip -d ~/.themes/ \
-  && rm -rf ~/.themes/catppuccin.zip; fi
-
 
 bindsym $mod+Ctrl+l move workspace to output right
 bindsym $mod+Ctrl+h move workspace to output left
