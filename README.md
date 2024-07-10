@@ -27,6 +27,7 @@ sudo pacman -S networkmanager
 sudo systemctl start NetworkManager.service
 sudo pacman -S network-manager-applet
 yay -S git-delta
+yay -S rofi
 ```
 Add to `/etc/X11/xorg.conf.d/90-touchpad.conf`
 ```
@@ -39,3 +40,4 @@ Section "InputClass"
         Option "TappingButtonMap" "lrm" # 1/2/3 finger, for 3-finger middle lrm
 EndSection
 ```
+Install rofi catpuccin theme from https://github.com/catppuccin/rofi/tree/main
