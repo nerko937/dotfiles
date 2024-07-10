@@ -28,6 +28,9 @@ sudo systemctl start NetworkManager.service
 sudo pacman -S network-manager-applet
 yay -S git-delta
 yay -S rofi
+yay -S zsh
+zsh
+sudo chsh -s /usr/bin/zsh
 ```
 Add to `/etc/X11/xorg.conf.d/90-touchpad.conf`
 ```
@@ -41,3 +44,4 @@ Section "InputClass"
 EndSection
 ```
 Install rofi catpuccin theme from https://github.com/catppuccin/rofi/tree/main
+Install p10k from guide https://github.com/romkatv/powerlevel10k
