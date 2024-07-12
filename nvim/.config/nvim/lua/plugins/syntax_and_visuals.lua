@@ -28,6 +28,7 @@ return {
                     "lua",
                     "luadoc",
                     "markdown",
+                    "markdown_inline",
                     "vim",
                     "vimdoc",
                     "dockerfile",
@@ -45,4 +46,16 @@ return {
         end
     },
     { 'RRethy/vim-illuminate' },
+    {
+        "OXY2DEV/markview.nvim",
+        lazy = false,
+        ft = { "md" },
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
+        -- config = function()
+        --     require("markview").setup({})
+        -- end
+    }
 }
