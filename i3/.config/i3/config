@@ -210,11 +210,11 @@ set $mantle #181825
 set $crust #11111b
 
 # target                 title     bg    text   indicator  border
-client.focused           $surface1 $base $green  $rosewater $surface1
-client.focused_inactive  $surface1 $base $blue  $rosewater $surface1
-client.unfocused         $surface0 $base $text  $rosewater $surface0
+client.focused           $base $base $green  $rosewater $surface1
+client.focused_inactive  $base $base $blue  $rosewater $surface1
+client.unfocused         $base $base $text  $rosewater $surface0
 client.urgent            $peach    $base $peach $overlay0  $peach
-client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.placeholder       $base $base $text  $overlay0  $overlay0
 client.background        $base
 
 gaps top 0
@@ -240,14 +240,8 @@ bindsym $mod+b exec --no-startup-id firefox
 
 hide_edge_borders both
 
-for_window [class="^.*"] border pixel 1
-new_window 1pixel
-# in newer versions
-# default_border pixel 1
-# default_floating_border pixel 1
-
-exec_always feh --bg-scale /home/marcin/Firefox_wallpaper.png
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-1 --off --output DP-1 --mode 1920x1200 --pos 0x0 --rotate normal --output HDMI-2 --off
+default_border none
+default_floating_border none
 
 workspace $ws10 output eDP-1
 assign [class="Slack"] $ws10
