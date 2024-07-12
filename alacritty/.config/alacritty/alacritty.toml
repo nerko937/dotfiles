@@ -23,3 +23,8 @@ style = "Italic"
 [font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
+
+[keyboard]
+bindings = [
+  { key = "N", mods = "Control|Shift", action = "CreateNewWindow" }
+]
