@@ -1,7 +1,7 @@
 return {
     {
         "nvim-telescope/telescope.nvim",
-        tag = "0.1.x",
+        tag = "0.1.8",
         dependencies = {
             "nvim-lua/plenary.nvim",
             "BurntSushi/ripgrep",
@@ -12,6 +12,11 @@ return {
             local telescope = require "telescope"
             telescope.setup {
                 defaults = { layout_strategy='vertical' },
+                pickers = {
+                    find_files = {
+                        hidden = true
+                    }
+                },
                 extensions = {
                     fzf = {
                         fuzzy = true, -- false will only do exact matching
