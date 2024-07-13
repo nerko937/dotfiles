@@ -38,7 +38,7 @@ yay -S brightnessctl
 ```
 
 ### Network Manager Applet
-For wifi tray icon. Preinstalled in Ubuntu.
+For wifi tray icon. Preinstalled in Ubuntu.  
 [Arch wiki page](https://wiki.archlinux.org/title/NetworkManager)
 ```sh
 yay -S networkmanager
@@ -69,7 +69,7 @@ It didn't make sense to store those configs in Stow.
 The default, oftentimes guided configs works fine and I just wanted to adjust minor things.
 
 ### Zsh
-[Arch wiki page](https://wiki.archlinux.org/title/zsh)
+[Arch wiki page](https://wiki.archlinux.org/title/zsh)  
 After Zsh installation and basic setup.
 I've installed p10k, it added some things to `.zshrc`.
 Then I only added keybinding and alias settings to the bottom of the file:
@@ -126,10 +126,10 @@ alias vi="nvim"
 ```
 
 ### Powerlevel10k
-Install based on the repo guide: https://github.com/romkatv/powerlevel10k
+Install based on the repo guide: https://github.com/romkatv/powerlevel10k  
 With terminal catpuccin color scheme,
 path colors were blending with the background,
-so I changed it as follows:
+so I changed it as follows:  
 In `.p10k.zsh` Change `POWERLEVEL9K_DIR_FOREGROUND` and `POWERLEVEL9K_DIR_ANCHOR_FOREGROUND` values `0`.
 
 ### Rofi
