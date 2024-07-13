@@ -5,7 +5,7 @@ dependencies are listed below.
 Some tools didn't require configs to store, they are listed as well.
 The commands provided are for Arch linux yay AUR package manager.
 
-## Tool and config dependencies
+# Program and config dependencies
 
 ### JetBrains Mono font
 Needed for multiple tools.
@@ -29,6 +29,12 @@ Section "InputClass"
         Option "NaturalScrolling" "true"
         Option "TappingButtonMap" "lrm" # 1/2/3 finger, for 3-finger middle lrm
 EndSection
+```
+
+### Feh
+For wallpaper setup via i3.
+```sh
+yay -S feh
 ```
 
 ### Brightness control
