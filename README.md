@@ -1,11 +1,11 @@
-# dotfiles
+# Dotfiles
 My dotfiles repo. After installing programs,
 configs can be linked via `GNU stow`,
 dependencies are listed below.
 Some tools didn't require configs to store, they are listed as well.
 The commands provided are for Arch linux yay AUR package manager.
 
-## tool and config dependencies
+## Tool and config dependencies
 
 ### JetBrains Mono font
 Needed for multiple tools.
