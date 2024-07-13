@@ -43,6 +43,13 @@ For i3 brightness keybindings. `xbacklight` didn't work for me.
 yay -S brightnessctl
 ```
 
+### Screenshots
+For i3 screenshot keybindings. `xclip` is also needed.
+```sh
+yay -S maim
+yay -S xdotool
+```
+
 ### Network Manager Applet
 For wifi tray icon. Preinstalled in Ubuntu.  
 [Arch wiki page](https://wiki.archlinux.org/title/NetworkManager)
@@ -53,7 +60,7 @@ yay -S network-manager-applet
 ```
 
 ### Xclip
-X11 cli clipboard needed for Neovim.
+X11 cli clipboard needed for Neovim. Preinstalled in Ubuntu.
 ```sh
 yay -S xclip
 ```
