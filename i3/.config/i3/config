@@ -23,7 +23,7 @@ font pango:JetBrainsMono Nerd Font Medium 12
 exec_always feh --bg-scale $HOME/wallpaper.jpg
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x120 --rotate normal --output HDMI-1 --off --output DP-1 --mode 1920x1200 --pos 0x0 --rotate normal --output HDMI-2 --off
 exec_always --no-startup-id picom
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+exec --no-startup-id ~/.config/polybar/launch_polybar.sh
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
@@ -45,7 +45,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+
-bindsym XF86MonBrightnessDown exec brightnessctl set -10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
