@@ -5,16 +5,16 @@ return {
         priority = 1000,
         config = function()
             vim.cmd([[colorscheme catppuccin-mocha]])
+            vim.api.nvim_set_hl(0, 'LineNr', { fg='#6c7086' })
         end
     },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {"nvim-tree/nvim-web-devicons"},
-        config = function()
-            require("lualine").setup {
-                options = {theme = "catppuccin"},
-            }
-        end
+        opts = {
+            options = { theme = "catppuccin" },
+            sections = { lualine_c = { { 'filename', path = 1 } } }
+        },
     },
     {
         "nvim-treesitter/nvim-treesitter",
