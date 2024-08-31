@@ -1,6 +1,6 @@
 return {
     {
-        'VonHeikemen/lsp-zero.nvim',
+        'vonheikemen/lsp-zero.nvim',
         branch = 'v3.x',
         config = function()
             local lsp_zero = require('lsp-zero')
@@ -15,27 +15,34 @@ return {
     { 'neovim/nvim-lspconfig' },
     {
         'williamboman/mason.nvim',
-        dependencies = { 'VonHeikemen/lsp-zero.nvim' },
+        dependencies = { 'vonheikemen/lsp-zero.nvim' },
         config = function()
             require("mason").setup()
         end
     },
     {
         "williamboman/mason-lspconfig.nvim",
-        dependencies = { 'VonHeikemen/lsp-zero.nvim' },
+        dependencies = { 'vonheikemen/lsp-zero.nvim' },
         config = function()
             require('mason').setup({})
             require('mason-lspconfig').setup({
                 ensure_installed = {
-                    "jedi_language_server",
-                    "ruff_lsp",
                     "lua_ls",
+                    "pyright",
                     "rust_analyzer"
                 },
                 handlers = {
                     function(server_name)
                         require('lspconfig')[server_name].setup({})
                     end,
+                    pyright = function()
+                        require('lspconfig').pyright.setup({
+                            before_init = function(_, config)
+                                config.settings.python.pythonPath = "./.venv/bin/python"
+                                config.settings.python.analysis.typeCheckingMode = "off"
+                            end
+                        })
+                    end
                 },
             })
         end
