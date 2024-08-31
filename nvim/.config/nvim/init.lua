@@ -38,4 +38,6 @@ vim.keymap.set({"v", "n"}, "K", "10k")
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+-- diagnostics in floating window
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 
