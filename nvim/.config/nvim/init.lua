@@ -33,8 +33,8 @@ require("lazy").setup("plugins")
 -- pasting the same item multiple times
 vim.keymap.set("x", "<leader>p", "\"_dP")
 -- moving lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set({"v", "n"}, "J", "10j")
+vim.keymap.set({"v", "n"}, "K", "10k")
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
