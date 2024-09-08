@@ -5,6 +5,7 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
+vim.o.cmdheight = 0
 vim.opt.mouse = ""
 vim.opt.clipboard = "unnamedplus"
 vim.opt.guicursor = ""
@@ -33,9 +34,22 @@ require("lazy").setup("plugins")
 -- pasting the same item multiple times
 vim.keymap.set("x", "<leader>p", "\"_dP")
 -- moving lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set({"v", "n"}, "J", "10j")
+vim.keymap.set({"v", "n"}, "K", "10k")
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+-- diagnostics in floating window
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 
+-- autosave
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+  callback = function()
+    if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
+      vim.api.nvim_command('silent update')
+    end
+  end,
+})
+
+-- netrw lines
+-- vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'

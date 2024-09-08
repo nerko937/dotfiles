@@ -143,7 +143,7 @@ Install based on the repo guide: https://github.com/romkatv/powerlevel10k
 With terminal catpuccin color scheme,
 path colors were blending with the background,
 so I changed it as follows:  
-In `.p10k.zsh` Change `POWERLEVEL9K_DIR_FOREGROUND` and `POWERLEVEL9K_DIR_ANCHOR_FOREGROUND` values `0`.
+In `.p10k.zsh` Change `POWERLEVEL9K_DIR_FOREGROUND`, `POWERLEVEL9K_DIR_ANCHOR_FOREGROUND` and `POWERLEVEL9K_DIR_SHORTENED_FOREGROUND` values `0`.
 
 ### Rofi
 After installation, install the catpuccin theme: https://github.com/catppuccin/rofi/tree/main
