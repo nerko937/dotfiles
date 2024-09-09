@@ -5,6 +5,12 @@ dependencies are listed below.
 Some tools didn't require configs to store, they are listed as well.
 The commands provided are for Arch linux yay AUR package manager.
 
+# This readme is WIP
+Issues that I had:
+* polybar form apt is probably older and had to rename `config.ini` to `config`
+* had issues with telescope's fzf on nvim startup, resolved with cd ~/.local/share/nvim/lazy/telescope-fzf-native.nvim && make && cd -
+* had to add i3 external apt repo
+
 # Program and config dependencies
 
 ### JetBrains Mono font
