@@ -76,6 +76,11 @@ For lazygit prettier diff.
 ```sh
 yay -S git-delta
 ```
+### npm
+For nvim pyright
+```sh
+yay -S npm
+```
 
 ## Manual configs
 It didn't make sense to store those configs in Stow.
@@ -84,7 +89,7 @@ The default, oftentimes guided configs works fine and I just wanted to adjust mi
 ### Zsh
 [Arch wiki page](https://wiki.archlinux.org/title/zsh)  
 After Zsh installation and basic setup.
-I've installed p10k, it added some things to `.zshrc`.
+I've installed p10k and zsh-autosuggestions, it added some things to `.zshrc`.
 Then I only added keybinding and alias settings to the bottom of the file:
 ```zsh
 # create a zkbd compatible hash;
@@ -135,6 +140,9 @@ key[Control-Right]="${terminfo[kRIT5]}"
 [[ -n "${key[Control-Right]}" ]] && bindkey -- "${key[Control-Right]}" forward-word
 
 bindkey '^R' history-incremental-search-backward
+
+zstyle ':completion:*' menu select
+
 alias vi="nvim"
 ```
 
