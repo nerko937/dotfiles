@@ -52,4 +52,4 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
 })
 
 -- netrw lines
--- vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
