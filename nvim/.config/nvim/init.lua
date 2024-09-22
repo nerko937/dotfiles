@@ -31,11 +31,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
+-- vatiations of A kaymap
+vim.keymap.set("n", "<leader>a", "$i")
+vim.keymap.set("n", "<leader>A", "$hi")
 -- pasting the same item multiple times
 vim.keymap.set("x", "<leader>p", "\"_dP")
--- moving lines
-vim.keymap.set({"v", "n"}, "J", "10j")
-vim.keymap.set({"v", "n"}, "K", "10k")
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
