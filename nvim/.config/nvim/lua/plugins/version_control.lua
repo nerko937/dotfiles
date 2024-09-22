@@ -12,4 +12,5 @@ return {
         end
     },
     {'mbbill/undotree'},
+    {'akinsho/git-conflict.nvim', version = "*", config = true},
 }
