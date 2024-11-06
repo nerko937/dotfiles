@@ -6,7 +6,7 @@ return {
             "nvim-lua/plenary.nvim",
             "BurntSushi/ripgrep",
             {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
-            {"dawsers/telescope-file-history.nvim"}
+            {"debugloop/telescope-undo.nvim"}
         },
         config = function()
             local telescope = require "telescope"
@@ -27,15 +27,22 @@ return {
                         override_file_sorter = true, -- override the file sorter
                         case_mode = "smart_case" -- or "ignore_case" or "respect_case"
                         -- the default case_mode is "smart_case"
-                    }
-                }
+                    },
+                },
+                opts = {
+                    extensions = {
+                        undo = { side_by_side = false },  -- doesnt work
+                    },
+                },
             }
             telescope.load_extension("fzf")
+            telescope.load_extension("undo")
             local builtin = require("telescope.builtin")
             vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
             vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
             vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
             vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
+            vim.keymap.set("n", "<leader>fh", "<cmd>Telescope undo<cr>")
         end
     },
 }
