@@ -43,6 +43,8 @@ vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 -- diagnostics in floating window
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+-- open parent directory rlative to current buffer
+vim.keymap.set("n", "<leader>fu", function() vim.cmd.e("%:h") end)
 
 -- autosave
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
@@ -55,3 +57,4 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
 
 -- netrw lines
 vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
+
