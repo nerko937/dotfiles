@@ -31,10 +31,10 @@ Section "InputClass"
 EndSection
 ```
 
-### Feh
+### Flameshot
 For wallpaper setup via i3.
 ```sh
-yay -S feh
+yay -S flameshot
 ```
 
 ### Brightness control
