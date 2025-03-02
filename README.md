@@ -1,4 +1,6 @@
 # Dotfiles
+![Desktop](/../<branch name>/screenshots/desktop.png?raw=true "Desktop")
+![Windows](/../<branch name>/screenshots/windows.png?raw=true "Widnows")
 My dotfiles repo. After installing programs,
 configs can be linked via `GNU stow`,
 dependencies are listed below.
