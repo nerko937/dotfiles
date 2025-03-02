@@ -1,11 +1,11 @@
 # Dotfiles
-![Desktop](/../screenshots/screenshots/desktop.png?raw=true "Desktop")
-![Windows](/../screenshots/screenshots/windows.png?raw=true "Widnows")
 My dotfiles repo. After installing programs,
 configs can be linked via `GNU stow`,
 dependencies are listed below.
 Some tools didn't require configs to store, they are listed as well.
 The commands provided are for Arch linux yay AUR package manager.
+![Desktop](/../screenshots/screenshots/desktop.png?raw=true "Desktop")
+![Windows](/../screenshots/screenshots/windows.png?raw=true "Widnows")
 
 # Program and config dependencies
 
