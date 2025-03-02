@@ -76,10 +76,10 @@ For lazygit prettier diff.
 ```sh
 yay -S git-delta
 ```
-### npm
-For nvim pyright
+### uv
+For nvim python-import
 ```sh
-yay -S npm
+yay -S uv
 ```
 
 ## Manual configs
