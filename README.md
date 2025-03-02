@@ -78,7 +78,7 @@ For lazygit prettier diff.
 ```sh
 yay -S git-delta
 ```
-### uv
+### UV
 For nvim python-import
 ```sh
 yay -S uv
