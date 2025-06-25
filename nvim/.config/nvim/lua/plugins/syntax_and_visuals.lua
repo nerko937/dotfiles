@@ -4,6 +4,11 @@ return {
         name = "catppuccin",
         priority = 1000,
         config = function()
+            require("catppuccin").setup({
+                integrations = {
+                    markview = true,
+                }
+            })
             vim.cmd([[colorscheme catppuccin-mocha]])
             vim.api.nvim_set_hl(0, 'LineNr', { fg='#6c7086' })
         end
