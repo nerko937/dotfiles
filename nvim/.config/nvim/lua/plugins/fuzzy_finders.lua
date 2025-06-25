@@ -12,7 +12,7 @@ return {
             local telescope = require "telescope"
             telescope.setup {
                 defaults = {
-                    file_ignore_patterns = { ".git/", ".venv/", ".ruff_cache/", ".pytest_cache/", ".coverage" },
+                    file_ignore_patterns = { ".git/", ".venv/", ".ruff_cache/", ".pytest_cache/", ".mypy_cache/", ".coverage" },
                     layout_strategy='vertical'
                 },
                 pickers = {
