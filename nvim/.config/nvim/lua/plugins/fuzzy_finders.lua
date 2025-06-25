@@ -25,8 +25,24 @@ return {
                         fuzzy = true, -- false will only do exact matching
                         override_generic_sorter = true, -- override the generic sorter
                         override_file_sorter = true, -- override the file sorter
-                        case_mode = "smart_case" -- or "ignore_case" or "respect_case"
+                        case_mode = "smart_case" -- or "ignore_case" or "respect_case",
                         -- the default case_mode is "smart_case"
+                    },
+                    aerial = {
+                        -- Set the width of the first two columns (the second
+                        -- is relevant only when show_columns is set to 'both')
+                        col1_width = 4,
+                        col2_width = 30,
+                        -- How to format the symbols
+                        format_symbol = function(symbol_path, filetype)
+                            if filetype == "json" or filetype == "yaml" then
+                                return table.concat(symbol_path, ".")
+                            else
+                                return symbol_path[#symbol_path]
+                            end
+                        end,
+                        -- Available modes: symbols, lines, both
+                        show_columns = "both",
                     },
                 },
                 opts = {
@@ -35,6 +51,7 @@ return {
                     },
                 },
             }
+            telescope.load_extension("aerial")
             telescope.load_extension("fzf")
             telescope.load_extension("undo")
             local builtin = require("telescope.builtin")
@@ -42,6 +59,7 @@ return {
             vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
             vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {})
             vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {})
+            vim.keymap.set("n", "<leader>fi", "<cmd>Telescope aerial<cr>")
             vim.keymap.set("n", "<leader>fh", "<cmd>Telescope undo<cr>")
         end
     },
