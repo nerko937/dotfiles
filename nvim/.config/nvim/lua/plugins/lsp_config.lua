@@ -34,18 +34,13 @@ return {
                     function(server_name)
                         require('lspconfig')[server_name].setup({})
                     end,
-                    jedi_language_server = function()
-                        require('lspconfig').jedi_language_server.setup {
-                            init_options = {
-                                workspace = {
-                                    environmentPath = "./.venv/bin/python"
-                                },
-                                completion = {
-                                    disableSnippets = true
-                                }
+                    vim.lsp.config('jedi_language_server', {
+                        init_options = {
+                            completion = {
+                                disableSnippets = true
                             }
                         }
-                    end,
+                    }),
                     lua_ls = function ()
                         require'lspconfig'.lua_ls.setup {
                             on_init = function(client)
