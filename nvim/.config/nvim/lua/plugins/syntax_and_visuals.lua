@@ -55,4 +55,19 @@ return {
             "nvim-tree/nvim-web-devicons"
         },
     },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        config = function ()
+            require("ibl").setup({
+                scope = {
+                    show_start = false,
+                    highlight = "LineNr",
+                    include = {
+                        node_type = { ["python"] = { "*" } },
+                    }
+                }
+            })
+        end
+    }
 }
