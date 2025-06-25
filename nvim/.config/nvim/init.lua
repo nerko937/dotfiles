@@ -36,15 +36,25 @@ require("lazy").setup("plugins")
 -- vatiations of A kaymap
 vim.keymap.set("n", "<leader>a", "$i")
 vim.keymap.set("n", "<leader>A", "$hi")
+-- start/end of line nav override
+vim.keymap.set("x", "H", "^")
+vim.keymap.set("x", "L", "$")
 -- pasting the same item multiple times
 vim.keymap.set("x", "<leader>p", "\"_dP")
+-- wrap with parenthesis
+vim.keymap.set("v", "<leader>w", '<cmd>s/\\(\\%V\\(.*\\)\\%V.\\)/"\\1"/<cr><esc><cmd>noh<cr>')
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 -- diagnostics in floating window
-vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+-- vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 -- open parent directory rlative to current buffer
 vim.keymap.set("n", "<leader>fu", function() vim.cmd.e("%:h") end)
+
+vim.diagnostic.config({
+    -- virtual_text = true,
+    virtual_lines = true,
+})
 
 -- autosave
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
