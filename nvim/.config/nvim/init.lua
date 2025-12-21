@@ -63,8 +63,8 @@ vim.keymap.set("i", "<BS>", "<Nop>", {
 })
 
 vim.diagnostic.config({
-    -- virtual_text = true,
-    virtual_lines = true,
+    virtual_text = true,
+    -- virtual_lines = true,
 })
 
 -- autosave
