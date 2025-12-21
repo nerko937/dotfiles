@@ -37,9 +37,10 @@ return {
     },
     {"github/copilot.vim"},
     {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = true
+        'm4xshen/autoclose.nvim',
+        config = function ()
+            require("autoclose").setup()
+        end
     },
     {
         "kiyoon/python-import.nvim",
