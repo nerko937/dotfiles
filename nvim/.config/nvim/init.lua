@@ -37,19 +37,30 @@ require("lazy").setup("plugins")
 vim.keymap.set("n", "<leader>a", "$i")
 vim.keymap.set("n", "<leader>A", "$hi")
 -- start/end of line nav override
-vim.keymap.set("x", "H", "^")
-vim.keymap.set("x", "L", "$")
+vim.keymap.set({"v", "n"}, "H", "^")
+vim.keymap.set({"v", "n"}, "L", "$")
 -- pasting the same item multiple times
 vim.keymap.set("x", "<leader>p", "\"_dP")
 -- wrap with parenthesis
-vim.keymap.set("v", "<leader>w", '<cmd>s/\\(\\%V\\(.*\\)\\%V.\\)/"\\1"/<cr><esc><cmd>noh<cr>')
+vim.keymap.set("n", "<leader>w", "ciw\"\"<esc>P")
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
 -- diagnostics in floating window
--- vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
 -- open parent directory rlative to current buffer
 vim.keymap.set("n", "<leader>fu", function() vim.cmd.e("%:h") end)
+-- goto implementation in split
+vim.keymap.set("n", "<leader>gd", "<cmd>vsplit<cr><cmd>lua vim.lsp.buf.definition()<cr>")
+-- underscore in insert mode
+vim.keymap.set("i", "<C-space>", "_")
+vim.keymap.set("i", "_", "<Nop>")
+-- disable backspace to enforce <C-h> habit
+vim.keymap.set("i", "<BS>", "<Nop>", {
+  noremap = true,
+  silent = true,
+  replace_keycodes = false
+})
 
 vim.diagnostic.config({
     -- virtual_text = true,
