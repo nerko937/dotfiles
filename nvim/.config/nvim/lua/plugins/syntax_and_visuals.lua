@@ -74,5 +74,14 @@ return {
                 }
             })
         end
+    },
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {},
+        config = function ()
+            local smear = require("smear_cursor")
+            smear.setup({})
+            smear.toggle()
+        end
     }
 }
