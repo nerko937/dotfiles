@@ -36,6 +36,9 @@ return {
                     end,
                     vim.lsp.config('jedi_language_server', {
                         init_options = {
+                            workspace = {
+                                environmentPath = "./.venv/bin/python"
+                            },
                             completion = {
                                 disableSnippets = true
                             }
