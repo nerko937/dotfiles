@@ -213,10 +213,10 @@ set $mantle #181825
 set $crust #11111b
 
 # target                 title     bg    text   indicator  border
-client.focused           $base $base $green  $rosewater $surface1
-client.focused_inactive  $base $base $blue  $rosewater $surface1
-client.unfocused         $base $base $text  $rosewater $surface0
-client.urgent            $peach    $base $peach $overlay0  $peach
+client.focused           $base $base $green  $blue $blue
+client.focused_inactive  $base $base $blue  $surface1 $surface1
+client.unfocused         $base $base $text  $surface0 $surface0
+client.urgent            $peach    $base $peach $peach  $peach
 client.placeholder       $base $base $text  $overlay0  $overlay0
 client.background        $base
 
@@ -243,7 +243,7 @@ bindsym $mod+b exec --no-startup-id firefox
 
 hide_edge_borders both
 
-default_border none
+default_border pixel 1
 default_floating_border none
 
 # workspace $ws10 output eDP-1
