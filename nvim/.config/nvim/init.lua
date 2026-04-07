@@ -6,7 +6,6 @@ vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.cmdheight = 0
-vim.opt.mouse = ""
 vim.opt.clipboard = "unnamedplus"
 vim.opt.guicursor = ""
 vim.opt.scrolloff = 10
