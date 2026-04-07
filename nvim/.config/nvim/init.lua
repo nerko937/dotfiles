@@ -52,7 +52,7 @@ vim.keymap.set("n", "<leader>fu", function() vim.cmd.e("%:h") end)
 -- goto implementation in split
 vim.keymap.set("n", "<leader>gd", "<cmd>vsplit<cr><cmd>lua vim.lsp.buf.definition()<cr>")
 -- underscore in insert mode
-vim.keymap.set("i", "<C-space>", "_")
+vim.keymap.set({"i", "c"}, "<C-space>", "_")
 vim.keymap.set("i", "_", "<Nop>")
 -- disable backspace to enforce <C-h> habit
 vim.keymap.set("i", "<BS>", "<Nop>", {
