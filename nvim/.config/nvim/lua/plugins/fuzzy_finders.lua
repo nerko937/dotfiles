@@ -13,12 +13,20 @@ return {
             telescope.setup {
                 defaults = {
                     file_ignore_patterns = { ".git/", ".venv/", ".ruff_cache/", ".pytest_cache/", ".mypy_cache/", ".coverage" },
-                    layout_strategy='vertical'
+                    layout_strategy='vertical',
+                    mappings = {
+                        i = { ["<C-Space>"] = false },
+                        n = { ["<C-Space>"] = false },
+                    },
                 },
                 pickers = {
                     find_files = {
                         hidden = true
-                    }
+                    },
+                    live_grep = {mappings = {
+                        i = { ["<C-Space>"] = false },
+                        n = { ["<C-Space>"] = false },
+                    },}
                 },
                 extensions = {
                     fzf = {
