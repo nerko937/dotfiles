@@ -1,80 +1,78 @@
-vim.g.mapleader = " "
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.o.tabstop = 4
-vim.o.expandtab = true
-vim.o.softtabstop = 4
-vim.o.shiftwidth = 4
-vim.o.cmdheight = 0
-vim.opt.clipboard = "unnamedplus"
-vim.opt.guicursor = ""
-vim.opt.scrolloff = 10
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
-vim.g.copilot_enabled = false
-vim.opt.laststatus = 3
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-    vim.fn.system(
-        {
-            "git",
-            "clone",
-            "--filter=blob:none",
-            "https://github.com/folke/lazy.nvim.git",
-            "--branch=stable",
-            lazypath
-        }
-    )
-end
-vim.opt.rtp:prepend(lazypath)
-require("lazy").setup("plugins")
-
--- vatiations of A kaymap
-vim.keymap.set("n", "<leader>a", "$i")
-vim.keymap.set("n", "<leader>A", "$hi")
--- start/end of line nav override
-vim.keymap.set({"v", "n"}, "H", "^")
-vim.keymap.set({"v", "n"}, "L", "$")
--- pasting the same item multiple times
-vim.keymap.set("x", "<leader>p", "\"_dP")
--- wrap with parenthesis
-vim.keymap.set("n", "<leader>w", "ciw\"\"<esc>P")
+-- colors
+vim.opt.termguicolors = true
 -- disabling autocomment on new lines
 vim.cmd('autocmd BufEnter * set formatoptions-=cro')
 vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
--- diagnostics in floating window
+-- set leader key
+vim.g.mapleader = " "
+-- line numbers config
+vim.opt.number = true
+vim.opt.relativenumber = true
+-- cursorline
+vim.opt.cursorline = true
+-- don't wrap text to newline
+vim.opt.wrap = false
+-- scrolloff numbers
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
+-- tabs
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+-- use system clipboard
+vim.opt.clipboard = "unnamedplus"
+-- status line config
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 3
+-- search eg. with / options
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+-- show column on specific char count
+vim.opt.colorcolumn = "88"
+-- backup settings
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- completion timeouts
+vim.opt.updatetime = 300
+vim.opt.timeoutlen = 500
+-- reload file when other process writes to it
+vim.opt.autoread = true
+-- vatiations of A kaymap
+vim.keymap.set("n", "<leader>a", "$i")
+vim.keymap.set("n", "<leader>A", "$hi")
+-- open parent directory relative to current buffer
+vim.keymap.set("n", "<leader>.", function() vim.cmd.e("%:h") end)
+-- diagnostics options
 vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float)
--- open parent directory rlative to current buffer
-vim.keymap.set("n", "<leader>fu", function() vim.cmd.e("%:h") end)
+vim.diagnostic.config({virtual_text = true})
+-- go to definition
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+-- enable new command ui
+require("vim._core.ui2").enable({})
+-- plugins
+require("plugins.syntax_and_visuals")
+require("plugins.files")
+require("plugins.lsp_config")
+require("plugins.completions")
+require("plugins.fuzzy_finders")
+require("plugins.intel")
+require("plugins.version_control")
+
+
+-- probably to be deleted
+-- wrap with parenthesis
+vim.keymap.set("n", "<leader>w", "ciw\"\"<esc>P")
 -- goto implementation in split
 vim.keymap.set("n", "<leader>gd", "<cmd>vsplit<cr><cmd>lua vim.lsp.buf.definition()<cr>")
--- underscore in insert mode
-vim.keymap.set({"i", "c"}, "<C-space>", "_")
-vim.keymap.set("i", "_", "<Nop>")
--- disable backspace to enforce <C-h> habit
-vim.keymap.set("i", "<BS>", "<Nop>", {
-  noremap = true,
-  silent = true,
-  replace_keycodes = false
+-- yank highlight
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
-
-vim.diagnostic.config({
-    virtual_text = true,
-    -- virtual_lines = true,
-})
-
--- autosave
--- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
---   callback = function()
---     if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
---       vim.api.nvim_command('silent update')
---     end
---   end,
--- })
-
--- netrw lines
-vim.g.netrw_bufsettings = 'noma nomod nu rnu nobl nowrap ro'
-

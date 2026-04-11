@@ -1,24 +1,12 @@
-return {
-    {
-        'stevearc/oil.nvim',
-        ---@module 'oil'
-        ---@type oil.SetupOpts
-        opts = {},
-        -- Optional dependencies
-        -- dependencies = { { "echasnovski/mini.icons", opts = {} } },
-        -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-        config = function ()
-            require("oil").setup({
-                view_options = {
-                    show_hidden = true,
-                },
-            })
-        end
+vim.pack.add({
+    "https://github.com/stevearc/oil.nvim",
+    "https://github.com/Pocco81/auto-save.nvim",
+})
+
+require("oil").setup({
+    view_options = {
+        show_hidden = true,
     },
-    {
-        'Pocco81/auto-save.nvim',
-        config = function ()
-            require('auto-save').setup()
-        end
-    }
-}
+})
+
+require('auto-save').setup({ write_all_buffers = false })

@@ -1,128 +1,31 @@
-return {
-    {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-            "L3MON4D3/LuaSnip",
-            "saadparwaiz1/cmp_luasnip",
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-path",
-        },
-        config = function()
-            -- `:help cmp`
-            local cmp = require "cmp"
-            local luasnip = require "luasnip"
-            luasnip.config.setup {}
-            cmp.setup {
-                snippet = {
-                    expand = function(args)
-                        luasnip.lsp_expand(args.body)
-                    end
-                },
-                completion = {completeopt = "menu,menuone,noinsert"},
-                -- :help ins-completion`
-                mapping = cmp.mapping.preset.insert {
-                    ["<Enter>"] = cmp.mapping.confirm {select = true},
-                    ["<C-e>"] = cmp.mapping.abort(),
-                    ["<C-j>"] = cmp.mapping.select_next_item(),
-                    ["<C-k>"] = cmp.mapping.select_prev_item(),
-                },
-                sources = {
-                    { name = "nvim_lsp" },
-                    { name = "luasnip" },
-                    { name = "path" }
-                }
-            }
-        end,
-    },
-    {"github/copilot.vim"},
-    {
-        'm4xshen/autoclose.nvim',
-        config = function ()
-            require("autoclose").setup()
-        end
-    },
-    {
-        "kiyoon/python-import.nvim",
-        build = "uv tool install . --force --reinstall",
-        keys = {
-            {
-                "<M-CR>",  -- alt + enter
-                function()
-                    require("python_import.api").add_import_current_word_and_notify()
-                end,
-                mode = { "i", "n" },
-                silent = true,
-                desc = "Add python import",
-                ft = "python",
-            },
-            {
-                "<M-CR>",
-                function()
-                    require("python_import.api").add_import_current_selection_and_notify()
-                end,
-                mode = "x",
-                silent = true,
-                desc = "Add python import",
-                ft = "python",
-            },
-            {
-                "<space>i",
-                function()
-                    require("python_import.api").add_import_current_word_and_move_cursor()
-                end,
-                mode = "n",
-                silent = true,
-                desc = "Add python import and move cursor",
-                ft = "python",
-            },
-            {
-                "<space>i",
-                function()
-                    require("python_import.api").add_import_current_selection_and_move_cursor()
-                end,
-                mode = "x",
-                silent = true,
-                desc = "Add python import and move cursor",
-                ft = "python",
-            },
-            {
-                "<space>tr",
-                function()
-                    require("python_import.api").add_rich_traceback()
-                end,
-                silent = true,
-                desc = "Add rich traceback",
-                ft = "python",
-            },
-        },
-        opts = {
-            extend_lookup_table = {
-                ---@type string[]
-                import = {
-                    -- "tqdm",
-                },
+vim.pack.add({
+    { src = "https://github.com/Saghen/blink.cmp", version = "v1" },
+    "https://github.com/github/copilot.vim",
+    "https://github.com/m4xshen/autoclose.nvim",
+})
+-- disable copilot on startup
+vim.g.copilot_enabled = false
 
-                ---@type table<string, string>
-                import_as = {
-                    -- These are the default values. Here for demonstration.
-                    -- np = "numpy",
-                    -- pd = "pandas",
-                },
-
-                ---@type table<string, string>
-                import_from = {
-                    timezone = "django.utils",
-                    Pattern = "apps.allsafe.models",
-                    -- tqdm = nil,
-                    -- tqdm = "tqdm",
-                },
-
-                ---@type table<string, string[]>
-                statement_after_imports = {
-                    -- logger = { "import my_custom_logger", "", "logger = my_custom_logger.get_logger()" },
-                },
-            },
-        },
+require('blink.cmp').setup({
+    keymap = { preset = 'enter' },
+    appearance = {
+        nerd_font_variant = 'mono'
     },
-}
+    completion = {
+        documentation = { auto_show = false }
+    },
+    sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
+    },
+    fuzzy = {
+        -- todo, change to rust once it becomes mature enough to support vim.pack
+        implementation = "lua",
+    }
+})
+
+require("autoclose").setup({
+    options = {
+        disabled_filetypes = { "text", "markdown" },
+        disable_when_touch = false,
+    }
+})
