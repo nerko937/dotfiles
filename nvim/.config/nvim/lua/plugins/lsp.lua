@@ -20,21 +20,6 @@ vim.lsp.config("pyright", {
     }
 })
 
--- vim.lsp.config("basedpyright", {
---     cmd_env = {
---         LANG = 'en_US.UTF-8',
---         LC_ALL = 'en_US.UTF-8',
---         LC_MESSAGES = 'en_US.UTF-8'
---     },
---     settings = {
---         basedpyright = {
---             analysis = {
---                 typeCheckingMode = "basic",
---             }
---         }
---     },
--- })
-
 vim.lsp.config("lua_ls", {
     settings = {
         Lua = {

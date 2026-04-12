@@ -2,9 +2,8 @@ vim.pack.add({
     { src = "https://github.com/Saghen/blink.cmp", version = "v1" },
     "https://github.com/github/copilot.vim",
     "https://github.com/m4xshen/autoclose.nvim",
+    "https://github.com/Wansmer/treesj",
 })
--- disable copilot on startup
-vim.g.copilot_enabled = false
 
 require('blink.cmp').setup({
     keymap = { preset = 'enter' },
@@ -18,14 +17,23 @@ require('blink.cmp').setup({
         default = { 'lsp', 'path', 'snippets', 'buffer' },
     },
     fuzzy = {
-        -- todo, change to rust once it becomes mature enough to support vim.pack
+        -- can't make it working with rust,
+        -- might be because of lack of examples with vim.pack
         implementation = "lua",
     }
 })
 
+-- disable copilot on startup
+vim.g.copilot_enabled = false
+
 require("autoclose").setup({
     options = {
-        disabled_filetypes = { "text", "markdown" },
-        disable_when_touch = false,
+        disabled_filetypes = { "text", "markdown", "fzf" },
+        disable_command_mode = true,
+        disable_when_touch = true,
     }
 })
+
+local treesj = require("treesj")
+treesj.setup()
+vim.keymap.set("n", "<leader>m", treesj.toggle)
