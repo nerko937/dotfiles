@@ -31,7 +31,7 @@ vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 -- show column on specific char count
-vim.opt.colorcolumn = "88"
+vim.opt.colorcolumn = "120"
 -- backup settings
 vim.opt.backup = false
 vim.opt.writebackup = false
