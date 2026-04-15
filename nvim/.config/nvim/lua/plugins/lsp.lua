@@ -15,8 +15,11 @@ require("mason-lspconfig").setup({
 vim.lsp.config("pyright", {
     settings = {
         python = {
-            pythonPath = "./.venv/bin/python"
-        }
+            pythonPath = "./.venv/bin/python",
+            analysis = {
+                typeCheckingMode = "off",
+            },
+        },
     }
 })
 
