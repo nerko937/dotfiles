@@ -25,11 +25,11 @@ fzf_lua.setup({
 })
 
 vim.keymap.set("n", "<leader>ff", fzf_lua.files)
-vim.keymap.set("n", "<leader>fg", fzf_lua.grep_visual)
+vim.keymap.set("n", "<leader>fg", fzf_lua.live_grep)
 vim.keymap.set("n", "<leader>fr", fzf_lua.lsp_references)
 vim.keymap.set("n", "<leader>fu", fzf_lua.undotree)
 vim.keymap.set("n", "<leader>fj", fzf_lua.jumps)
-vim.keymap.set("n", "<leader>/", "<cmd>FzfLua combine pickers=files;grep_visual<CR>")
+vim.keymap.set("n", "<leader>/", "<cmd>FzfLua combine pickers=files;grep_project<CR>")
 
 local aerial = require("aerial")
 aerial.setup()
